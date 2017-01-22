@@ -77,8 +77,10 @@ bool GlobalTestInit(const std::string& strConfFile)
       std::cout << "[ERROR] Check \"test-folders\" parameter !" << std::endl;
 
 #ifdef LINUX
-   if (TEST_FOLDER.compare(0, 5, "/home") == 0 && std::count(TEST_FOLDER.cbegin(), TEST_FOLDER.cend(), '/') == 2
-      || std::count(TEST_FOLDER.cbegin(), TEST_FOLDER.cend(), '/') == 3 && TEST_FOLDER[TEST_FOLDER.length() - 1] == '/')
+   if ( TEST_FOLDER[0] == '~'
+      || (TEST_FOLDER.compare(0, 5, "/home") == 0
+      && std::count(TEST_FOLDER.cbegin(), TEST_FOLDER.cend(), '/') == 2
+      || std::count(TEST_FOLDER.cbegin(), TEST_FOLDER.cend(), '/') == 3 && TEST_FOLDER[TEST_FOLDER.length() - 1] == '/'))
    {
       std::cout << "[ERROR] Check \"test-folders\" parameter !" << std::endl;
       return false;

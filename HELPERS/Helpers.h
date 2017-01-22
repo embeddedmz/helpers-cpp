@@ -14,6 +14,7 @@
 /* to count '/' occurrences in a path (used to sort the folders/files listing) */
 #include <boost/range/algorithm/count.hpp>
 #include <cstdio>
+#include <fstream>
 #include <functional>
 #include <iostream>
 #include <string>
